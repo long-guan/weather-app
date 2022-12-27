@@ -1,5 +1,5 @@
 import {getData} from './fetchData.js';
-import {testing} from './disectData.js';
+import {searchLoc} from './locationSearch.js';
 
-getData();
-testing();
+getData('seattle');
+searchLoc();

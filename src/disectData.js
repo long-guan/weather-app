@@ -1,6 +1,7 @@
 import {getData} from './fetchData.js';
 
-export function testing() {
-    let data = getData();
+export async function testing() {
+    let data = await getData();
     console.log(data);
+    console.log(data.main.temp);
 }
