@@ -1,3 +1,35 @@
 body {
     background-image: url('./image/rain.jpg');
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    margin: 0;
+}
+
+.top-outer-cont {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 25px
+}
+
+.bot-outer-cont {
+    margin-bottom: 25px;
+    margin-left: 25px;
+    margin-right: 25px
+}
+
+.daily-hourly-cont {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.top-left-cont, .top-right-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

@@ -8,9 +8,44 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div>
-        <input type="text" placeholder="Search Location" class="location">
-        <button class="search-btn">Search</button>
+    <div class="top-outer-cont">
+        <div class="top-left-cont">
+            <div>
+                <div class="current-weather-main">Current Weather</div>
+                <div class="weather-desc">Weather Description</div>
+            </div>
+            <div class="location-display">Location</div>
+            <div>
+                <div class="day-date">Day, Date</div>
+                <div>Time</div>
+            </div>
+            <div>Temperature</div>
+        </div>
+        <div>
+            <input type="text" placeholder="Search Location" class="location-input">
+            <button class="search-btn">Search</button>
+        </div>
+        <div class="top-right-cont">
+            <div>Wind Chill</div>
+            <div>Humidity</div>
+            <div>Chance of Rain</div>
+            <div>Wind Speed</div>
+        </div>
+    </div>
+    <div class="bot-outer-cont">
+        <div>
+            <span>Daily</span>
+            <span>Hourly</span>
+        </div>
+        <div class="daily-hourly-cont">
+            <div>Monday</div>
+            <div>Tuesday</div>
+            <div>Wednesday</div>
+            <div>Thursday</div>
+            <div>Friday</div>
+            <div>Saturday</div>
+            <div>Sunday</div>
+        </div>
     </div>
     <script src="main.js"></script>
 </body>
