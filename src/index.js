@@ -1,5 +1,10 @@
-import {getData} from './fetchData.js';
-import {searchLoc} from './locationSearch.js';
 
-// getData('47.6038', '-122.3301');
+
+import {defaultLoc, searchLoc} from './locationSearch.js';
+
+
+// default location upon page load is Seattle
+defaultLoc('Seattle');
+
+// sets up search function
 searchLoc();

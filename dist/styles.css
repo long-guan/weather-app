@@ -6,6 +6,7 @@ body {
     justify-content: space-between;
     height: 100vh;
     margin: 0;
+    font-family: 'Sono', sans-serif;
 }
 
 .top-outer-cont {
@@ -32,4 +33,47 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.current-weather-main, .location-display, .temperature, .wind-chill, .humidity, .rain-chance, .wind-speed {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.search-btn, .location-input {
+    border-radius: 7px;
+}
+
+.search-btn:hover {
+    cursor: pointer;
+    color: blue;
+}
+
+.center {
+    display: flex;
+    height: 40px;
+    align-items: center;
+}
+
+.daily-btn, .hourly-btn {
+    border-style: solid;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.daily-btn:hover, .hourly-btn:hover {
+    background-color: white;
+    cursor: pointer;
 }

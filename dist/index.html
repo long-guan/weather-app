@@ -17,34 +17,109 @@
             <div class="location-display">Location</div>
             <div>
                 <div class="day-date">Day, Date</div>
-                <div>Time</div>
+                <div class="time">Time</div>
             </div>
-            <div>Temperature</div>
+            <div class="flex">
+                <svg style="width:34px;height:34px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M17 3H21V5H17V3M17 7H21V9H17V7M17 11H21V13H17.75L17 12.1V11M21 15V17H19C19 16.31 18.9 15.63 18.71 15H21M7 3V5H3V3H7M7 7V9H3V7H7M7 11V12.1L6.25 13H3V11H7M3 15H5.29C5.1 15.63 5 16.31 5 17H3V15M15 13V5C15 3.34 13.66 2 12 2S9 3.34 9 5V13C6.79 14.66 6.34 17.79 8 20S12.79 22.66 15 21 17.66 16.21 16 14C15.72 13.62 15.38 13.28 15 13M12 4C12.55 4 13 4.45 13 5V8H11V5C11 4.45 11.45 4 12 4Z" />
+                </svg>
+                <div class="temperature">Temperature</div>
+            </div>
+
         </div>
-        <div>
+        <div class="center">
             <input type="text" placeholder="Search Location" class="location-input">
-            <button class="search-btn">Search</button>
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24" class="search-btn">
+                <path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+            </svg>
         </div>
         <div class="top-right-cont">
-            <div>Wind Chill</div>
-            <div>Humidity</div>
-            <div>Chance of Rain</div>
-            <div>Wind Speed</div>
+            <div>
+                <div class="flex">
+                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M17 13V7H19V13H17M17 17V15H19V17H17M13 13V5C13 3.3 11.7 2 10 2S7 3.3 7 5V13C4.8 14.7 4.3 17.8 6 20S10.8 22.7 13 21 15.7 16.2 14 14C13.7 13.6 13.4 13.3 13 13M10 4C10.6 4 11 4.4 11 5V8H9V5C9 4.4 9.4 4 10 4Z" />
+                    </svg>
+                    <span>Feels Like</span>
+                </div>
+                <div class="wind-chill">Wind Chill</div>
+            </div>
+            <div>
+                <div class="flex">
+                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M12,3.25C12,3.25 6,10 6,14C6,17.32 8.69,20 12,20A6,6 0 0,0 18,14C18,10 12,3.25 12,3.25M14.47,9.97L15.53,11.03L9.53,17.03L8.47,15.97M9.75,10A1.25,1.25 0 0,1 11,11.25A1.25,1.25 0 0,1 9.75,12.5A1.25,1.25 0 0,1 8.5,11.25A1.25,1.25 0 0,1 9.75,10M14.25,14.5A1.25,1.25 0 0,1 15.5,15.75A1.25,1.25 0 0,1 14.25,17A1.25,1.25 0 0,1 13,15.75A1.25,1.25 0 0,1 14.25,14.5Z" />
+                    </svg>
+                    <span>Humidity</span>
+                </div>
+                <div class="humidity"></div>
+            </div>
+            <div>
+                <div class="flex">
+                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M9,12C9.53,12.14 9.85,12.69 9.71,13.22L8.41,18.05C8.27,18.59 7.72,18.9 7.19,18.76C6.65,18.62 6.34,18.07 6.5,17.54L7.78,12.71C7.92,12.17 8.47,11.86 9,12M13,12C13.53,12.14 13.85,12.69 13.71,13.22L11.64,20.95C11.5,21.5 10.95,21.8 10.41,21.66C9.88,21.5 9.56,20.97 9.7,20.43L11.78,12.71C11.92,12.17 12.47,11.86 13,12M17,12C17.53,12.14 17.85,12.69 17.71,13.22L16.41,18.05C16.27,18.59 15.72,18.9 15.19,18.76C14.65,18.62 14.34,18.07 14.5,17.54L15.78,12.71C15.92,12.17 16.47,11.86 17,12M17,10V9A5,5 0 0,0 12,4C9.5,4 7.45,5.82 7.06,8.19C6.73,8.07 6.37,8 6,8A3,3 0 0,0 3,11C3,12.11 3.6,13.08 4.5,13.6V13.59C5,13.87 5.14,14.5 4.87,14.96C4.59,15.43 4,15.6 3.5,15.32V15.33C2,14.47 1,12.85 1,11A5,5 0 0,1 6,6C7,3.65 9.3,2 12,2C15.43,2 18.24,4.66 18.5,8.03L19,8A4,4 0 0,1 23,12C23,13.5 22.2,14.77 21,15.46V15.46C20.5,15.73 19.91,15.57 19.63,15.09C19.36,14.61 19.5,14 20,13.72V13.73C20.6,13.39 21,12.74 21,12A2,2 0 0,0 19,10H17Z" />
+                    </svg>
+                    <span>Chance of Rain</span>
+                </div>
+                <div class="rain-chance"></div>
+            </div>
+            <div>
+                <div class="flex">
+                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M4,10A1,1 0 0,1 3,9A1,1 0 0,1 4,8H12A2,2 0 0,0 14,6A2,2 0 0,0 12,4C11.45,4 10.95,4.22 10.59,4.59C10.2,5 9.56,5 9.17,4.59C8.78,4.2 8.78,3.56 9.17,3.17C9.9,2.45 10.9,2 12,2A4,4 0 0,1 16,6A4,4 0 0,1 12,10H4M19,12A1,1 0 0,0 20,11A1,1 0 0,0 19,10C18.72,10 18.47,10.11 18.29,10.29C17.9,10.68 17.27,10.68 16.88,10.29C16.5,9.9 16.5,9.27 16.88,8.88C17.42,8.34 18.17,8 19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14H5A1,1 0 0,1 4,13A1,1 0 0,1 5,12H19M18,18H4A1,1 0 0,1 3,17A1,1 0 0,1 4,16H18A3,3 0 0,1 21,19A3,3 0 0,1 18,22C17.17,22 16.42,21.66 15.88,21.12C15.5,20.73 15.5,20.1 15.88,19.71C16.27,19.32 16.9,19.32 17.29,19.71C17.47,19.89 17.72,20 18,20A1,1 0 0,0 19,19A1,1 0 0,0 18,18Z" />
+                    </svg>
+                    <span>Wind Speed</span>
+                </div>
+                <div class="wind-speed"></div>
+            </div>
         </div>
     </div>
     <div class="bot-outer-cont">
         <div>
-            <span>Daily</span>
-            <span>Hourly</span>
+            <span class="daily-btn">Daily</span>
+            <span class="hourly-btn">Hourly</span>
         </div>
         <div class="daily-hourly-cont">
-            <div>Monday</div>
-            <div>Tuesday</div>
-            <div>Wednesday</div>
-            <div>Thursday</div>
-            <div>Friday</div>
-            <div>Saturday</div>
-            <div>Sunday</div>
+            <div class="daily">
+                <div class="bold">Monday</div>
+                <div>high</div>
+                <div>low</div>
+                <div>weather</div>
+            </div>
+            <div class="daily">
+                <div class="bold">Tuesday</div>
+                <div>high</div>
+                <div>low</div>
+                <div>weather</div>
+            </div>
+            <div class="daily">
+                <div class="bold">Wednesday</div>
+                <div>high</div>
+                <div>low</div>
+                <div>weather</div>
+            </div>
+            <div class="daily">
+                <div class="bold">Thursday</div>
+                <div>high</div>
+                <div>low</div>
+                <div>weather</div>
+            </div>
+            <div class="daily">
+                <div class="bold">Friday</div>
+                <div>high</div>
+                <div>low</div>
+                <div>weather</div>
+            </div>
+            <div class="daily">
+                <div class="bold">Saturday</div>
+                <div>high</div>
+                <div>low</div>
+                <div>weather</div>
+            </div>
+            <div class="daily">
+                <div class="bold">Sunday</div>
+                <div>high</div>
+                <div>low</div>
+                <div>weather</div>
+            </div>
         </div>
     </div>
     <script src="main.js"></script>
