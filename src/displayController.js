@@ -1,4 +1,5 @@
 import { setBackground } from "./setBackground";
+import { exportData } from "./locationSearch.js"
 
 let currentWeatherMain = document.querySelector('.current-weather-main');
 let locationDisplay = document.querySelector('.location-display');
@@ -10,8 +11,10 @@ let windChill = document.querySelector('.wind-chill');
 let humidity = document.querySelector('.humidity');
 let rainChance = document.querySelector('.rain-chance');
 let windSpeed = document.querySelector('.wind-speed');
-let dailyForecast = document.querySelectorAll('.daily');
+let forecast = document.querySelectorAll('.daily');
 let hourlyBtn = document.querySelector('.hourly-btn');
+let dailyBtn = document.querySelector('.daily-btn');
+let daily = true;
 
 export function displayTopData(data, location) {
     currentWeatherMain.innerHTML = data.current.weather[0].main;
@@ -28,10 +31,13 @@ export function displayTopData(data, location) {
 }
 
 export function displayDailyData(data) {
+    let savedData = data;
     let weekDays = sortWeekDays();
-    let dailyData = data.daily.splice(1);
+    let dailyData = savedData.daily.splice(1);
+    console.log(savedData);
+    console.log(dailyData);
     let index = 0;
-    for (let day of dailyForecast) {
+    for (let day of forecast) {
         day.children[0].innerHTML = weekDays[index];
         day.children[1].innerHTML = Math.round(dailyData[index].temp.max) + '°F';
         day.children[2].innerHTML = Math.round(dailyData[index].temp.min) + '°F';
@@ -42,24 +48,47 @@ export function displayDailyData(data) {
 
 export function displayHourlyData(data) {
     hourlyBtn.addEventListener('click', ()=> {
-        sortHourlyData(data)
-        console.log('working');
+        let hourData = convertHourly(data);
+        hourData.splice(0,1); // remove current hour
+        let index = 0;
+        for (let hour of forecast) {
+            hour.children[0].innerHTML = hourData[index].dt;
+            hour.children[1].innerHTML = Math.round(hourData[index].temp) + '°F';
+            hour.children[2].innerHTML = Math.round(hourData[index].pop * 100) + '% Rain';
+            hour.children[3].innerHTML = hourData[index].weather[0].main;
+            index++;
+        }
     });
 }
 
-function sortHourlyData(data) {
-    let hours = data.hourly;
-    console.log(hours);
-    convertUnixToHour(hours);
-}
-
-function convertUnixToHour(hours) {
-    let convertedHours = [];
-    for (let hour in hours) {
-        let unixTime = new Date(hour.dt * 1000);
-        convertedHours.push(unixTime.toLocaleTimeString("en-US"));
+dailyBtn.addEventListener('click', ()=> {
+    if (daily == false) {
+        daily = true;
+        hourlyBtn.classList.remove('selected');
+        dailyBtn.classList.add('selected');
+        displayDailyData(exportData());
     }
-    console.log(convertedHours);
+});
+
+hourlyBtn.addEventListener('click', ()=> {
+    if (daily == true) {
+        daily = false;
+        dailyBtn.classList.remove('selected');
+        hourlyBtn.classList.add('selected');
+        displayHourlyData(exportData());
+    }
+});
+
+// convert unixTime to local time
+function convertHourly(data) {
+    let hours = data.hourly;
+    for (let hour of hours) {
+        let unixTime = new Date(hour.dt * 1000);
+        let hourUnconverted = unixTime.toLocaleTimeString("en-US");
+        let amPm = ' ' + hourUnconverted[hourUnconverted.length - 2] + hourUnconverted[hourUnconverted.length - 1];
+        hour.dt = Math.round(parseInt(hourUnconverted)) + amPm;
+    }
+    return hours;
 }
 
 // returns the location name with the first letter capitalized

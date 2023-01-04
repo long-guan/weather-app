@@ -77,3 +77,7 @@ body {
     background-color: white;
     cursor: pointer;
 }
+
+.selected {
+    background-color: white;
+}
