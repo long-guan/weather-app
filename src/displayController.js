@@ -31,34 +31,32 @@ export function displayTopData(data, location) {
 }
 
 export function displayDailyData(data) {
-    let savedData = data;
     let weekDays = sortWeekDays();
-    let dailyData = savedData.daily.splice(1);
-    console.log(savedData);
-    console.log(dailyData);
-    let index = 0;
+    let dailyData = data.daily;
+    let weekIndex = 0;
+    let dataIndex = 1;
     for (let day of forecast) {
-        day.children[0].innerHTML = weekDays[index];
-        day.children[1].innerHTML = Math.round(dailyData[index].temp.max) + '°F';
-        day.children[2].innerHTML = Math.round(dailyData[index].temp.min) + '°F';
-        day.children[3].innerHTML = dailyData[index].weather[0].main;
-        index++;
+        day.children[0].innerHTML = weekDays[weekIndex];
+        day.children[1].innerHTML = Math.round(dailyData[dataIndex].temp.max) + '°F';
+        day.children[2].innerHTML = Math.round(dailyData[dataIndex].temp.min) + '°F';
+        day.children[3].innerHTML = dailyData[dataIndex].weather[0].main;
+        dataIndex++;
+        weekIndex++;
     }
 }
 
 export function displayHourlyData(data) {
-    hourlyBtn.addEventListener('click', ()=> {
-        let hourData = convertHourly(data);
-        hourData.splice(0,1); // remove current hour
-        let index = 0;
-        for (let hour of forecast) {
-            hour.children[0].innerHTML = hourData[index].dt;
-            hour.children[1].innerHTML = Math.round(hourData[index].temp) + '°F';
-            hour.children[2].innerHTML = Math.round(hourData[index].pop * 100) + '% Rain';
-            hour.children[3].innerHTML = hourData[index].weather[0].main;
-            index++;
-        }
-    });
+    let cloneData = JSON.parse(JSON.stringify(data));
+    let hourData = convertHourly(cloneData);
+    let index = 1; // don't use index 0 since it is the current hour
+    for (let hour of forecast) {
+        hour.children[0].innerHTML = hourData[index].dt;
+        hour.children[1].innerHTML = Math.round(hourData[index].temp) + '°F';
+        hour.children[2].innerHTML = Math.round(hourData[index].pop * 100) + '% Rain';
+        hour.children[3].innerHTML = hourData[index].weather[0].main;
+        index++;
+    }
+    exportData();
 }
 
 dailyBtn.addEventListener('click', ()=> {
